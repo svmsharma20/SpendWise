@@ -1,0 +1,1 @@
+--INSERT INTO USERS (ID, EMAIL, FIRST_NAME, LAST_NAME, PASSWORD, IS_ADMIN) VALUES (0, 'james@xyz.com', 'James', 'Bond', 'root', false)
