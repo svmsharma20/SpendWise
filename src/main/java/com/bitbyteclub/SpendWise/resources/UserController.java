@@ -23,6 +23,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{email}")
+    @RolesAllowed({"ADMIN"})
     public User retrieveUser(@PathVariable String email){
         return userService.getUserByEmail(email);
     }

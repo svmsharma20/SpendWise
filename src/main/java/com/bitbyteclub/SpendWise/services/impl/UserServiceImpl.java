@@ -5,7 +5,9 @@ import com.bitbyteclub.SpendWise.entities.UserAuthority;
 import com.bitbyteclub.SpendWise.repository.UserRepository;
 import com.bitbyteclub.SpendWise.services.UserAuthorityService;
 import com.bitbyteclub.SpendWise.services.UserService;
+import jdk.jfr.Label;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Lazy
     @Autowired
     private PasswordEncoder passwordEncoder;
 
