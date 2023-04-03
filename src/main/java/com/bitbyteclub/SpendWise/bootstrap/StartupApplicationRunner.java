@@ -23,19 +23,17 @@ public class StartupApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        var userAuthority = new UserAuthority("USER");
-        authorityService.addAuthority(userAuthority);
-
-        var adminAuthority = new UserAuthority("ADMIN");
-        authorityService.addAuthority(adminAuthority);
+        authorityService.addAuthority("USER");
+        authorityService.addAuthority("ADMIN");
 
         var user = new User();
         user.setFirstName("Iron");
         user.setLastName("Man");
+        user.setUsername("ironman");
         user.setEmail("ironman@xyz.com");
         user.setPassword("root");
         userService.registerUser(user);
 
-        userService.addAuthority("ironman@xyz.com", Set.of("ADMIN"));
+        userService.addAuthority("ironman", Set.of("USER", "ADMIN"));
     }
 }

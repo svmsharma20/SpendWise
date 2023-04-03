@@ -25,9 +25,12 @@ public class User implements UserDetails {
     @Setter
     private String lastName;
 
+    @Setter
+    @Column(unique = true, nullable = false)
+    private String username;
+
     @Getter
     @Setter
-    @Column(unique = true)
     private String email;
 
     @Getter
@@ -44,7 +47,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override

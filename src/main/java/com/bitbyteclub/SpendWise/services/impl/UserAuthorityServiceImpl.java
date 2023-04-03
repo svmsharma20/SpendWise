@@ -13,13 +13,13 @@ public class UserAuthorityServiceImpl implements UserAuthorityService{
     private UserAuthorityRepository userAuthorityRepository;
 
     @Override
-    public UserAuthority addAuthority(UserAuthority authority){
-        return userAuthorityRepository.save(authority);
+    public UserAuthority addAuthority(String authority){
+        return userAuthorityRepository.save(new UserAuthority(authority.toUpperCase()));
     }
 
     @Override
-    public void deleteAuthority(UserAuthority authority){
-        userAuthorityRepository.delete(authority);
+    public void deleteAuthority(String authority){
+        userAuthorityRepository.delete(new UserAuthority(authority.toUpperCase()));
     }
 
     @Override

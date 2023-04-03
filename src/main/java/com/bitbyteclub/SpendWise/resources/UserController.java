@@ -22,15 +22,15 @@ public class UserController {
         return userService.registerUser(user);
     }
 
-    @GetMapping("/users/{email}")
+    @GetMapping("/users/{username}")
     @RolesAllowed({"ADMIN"})
-    public User retrieveUser(@PathVariable String email){
-        return userService.getUserByEmail(email);
+    public User retrieveUser(@PathVariable String username){
+        return userService.getUserByUsername(username);
     }
 
-    @PutMapping("/users/{email}")
+    @PutMapping("/users/{username}")
 //    @RolesAllowed({"ADMIN"})
-    public User addUserAuthority(@PathVariable String email, @RequestBody Set<String> authority){
-        return userService.addAuthority(email, authority);
+    public User addUserAuthority(@PathVariable String username, @RequestBody Set<String> authority){
+        return userService.addAuthority(username, authority);
     }
 }

@@ -10,5 +10,6 @@ import java.util.Set;
 public interface UserService extends UserDetailsService {
     User registerUser(User user);
     User getUserByEmail(@Nonnull String email);
-    User addAuthority(String email, Set<String> authority);
+    User getUserByUsername(@Nonnull String username);
+    User addAuthority(String username, Set<String> authority);
 }

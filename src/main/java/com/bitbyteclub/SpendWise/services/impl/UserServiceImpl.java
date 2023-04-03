@@ -41,13 +41,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return getUserByEmail(username);
+    public User getUserByUsername(String username) {
+        return userRepository.getUserByUsername(username);
     }
 
     @Override
-    public User addAuthority(String email, Set<String> authority){
-        User user = getUserByEmail(email);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return getUserByUsername(username);
+    }
+
+    @Override
+    public User addAuthority(String username, Set<String> authority){
+        User user = getUserByUsername(username);
         var authoritySet = authority.stream().map(auth -> authorityService.getAuthority(auth)).collect(Collectors.toSet());
         if(user == null || authoritySet==null || authoritySet.isEmpty()){
             return null;
